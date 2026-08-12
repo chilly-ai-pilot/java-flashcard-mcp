@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: java-flashcard-mcp
+
+  test:
+    database:
+      replace: none
+
+  ai:
+    mcp:
+      server:
+        enabled: true
+        stdio: true
+        name: java-flashcard-mcp
+        version: 1.0.0
+        type: SYNC
+
+  main:
+    banner-mode: "off"
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/flashcarddb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQLDialect
+
+logging:
+  level:
+    io.modelcontextprotocol: DEBUG
+    com.chilly.flashcardmcp: DEBUG
+    org.springframework.ai.tool: DEBUG
